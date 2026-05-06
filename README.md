@@ -77,7 +77,6 @@ Only `main.py` and `digits.py` are deployed to the device.
 - **Tick-based timing.** The remaining time is derived from `time.ticks_ms()` deadlines via `time.ticks_diff`, which is wrap-safe on MicroPython and does not drift like accumulated `sleep` calls.
 - **Render cache.** [main.py:56](main.py#L56) keeps the four currently drawn digits and the active foreground pen. Only digits that actually changed are redrawn, and `su.update(graphics)` is skipped when nothing was dirty.
 - **Integer brightness.** Brightness is held as an integer 1–10 to avoid float drift across repeated up/down presses; the hardware call divides by 10 only at the boundary ([main.py:173](main.py#L173)).
-- **Countdown blink via brightness.** Instead of inverting colours during the last 10 seconds, the app flips the global brightness — fewer pixel writes and the colour code (work blue / break orange) remains visible.
 - **Audio state machine.** `service_audio()` drives a small queue of tones through `IDLE → PLAYING → RELEASING → IDLE` so the main loop never has to block while a tone is playing.
 - **Debouncing.** Every button uses an edge-detected press (`current && !previous`) plus a `250 ms` debounce window. Button B additionally requires a double-press within `2000 ms` to reset.
 - **Display off.** Pressing C calls `su.set_brightness(0.0)` and clears the framebuffer; the timer and audio continue in the background. Pressing C again restores the user-selected brightness and re-renders the current state.

@@ -1,6 +1,6 @@
-# 8x8-Glyphen als kompakte Bitmap: 1 Byte je Zeile, MSB = Spalte 0.
-# Layout: 12 Glyphen * 8 Zeilen = 96 Bytes. Offset = idx * 8.
-# Index 0..9 = Ziffern, 10 = "-", 11 = "+".
+# 8x8 glyphs as compact bitmap: 1 byte per row, MSB = column 0.
+# Layout: 12 glyphs * 8 rows = 96 bytes. Offset = idx * 8.
+# Index 0..9 = digits, 10 = "-", 11 = "+".
 DIGIT_HEIGHT = 8
 DIGIT_BYTES = 8
 

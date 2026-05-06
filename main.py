@@ -16,7 +16,7 @@ POLL_MS = 50
 POLL_MS_IDLE = 100
 COUNTDOWN_BLINK_FROM = 10
 
-# Helligkeit als Integer 1..10, vermeidet Float-Drift bei wiederholten Schritten.
+# Brightness as integer 1..10, avoids float drift across repeated steps.
 BRIGHTNESS_DIV = 10
 BRIGHTNESS_MIN = 1
 BRIGHTNESS_MAX = 10
@@ -52,7 +52,7 @@ audio_ch.configure(
     release=0.1,
 )
 
-# [digit_idx_pos0..3, last_fg_pen] — invalidiert mit -1.
+# [digit_idx_pos0..3, last_fg_pen] — invalidated with -1.
 _render_cache = [-1, -1, -1, -1, -1]
 
 # [phase, event_deadline_ms]
@@ -195,7 +195,7 @@ def run():
         user_bri = BRIGHTNESS_MAX
     apply_brightness(user_bri)
     display_on = True
-    blink_is_bright = False  # aktueller Zustand der Countdown-Blink-Helligkeit
+    blink_is_bright = False  # current state of the countdown blink brightness
 
     a_down = False
     b_down = False
