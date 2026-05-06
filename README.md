@@ -67,7 +67,6 @@ Glyphs are stored in [digits.py](digits.py) as a flat `bytes` object: 12 glyphs 
 | [main.py](main.py) | Entry point; runs the state machine, polls buttons, drives the display, schedules audio. |
 | [digits.py](digits.py) | 8×8 bitmap glyphs for digits and a few symbols. |
 | `typings/` | MicroPython stubs (`pimoroni-pico-stubs` v1.21.0) for IDE autocompletion. **Not** deployed. |
-| `.micropico` | Marker file that the MicroPico VS Code extension uses to recognise the project. |
 
 Only `main.py` and `digits.py` are deployed to the device.
 
