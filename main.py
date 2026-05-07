@@ -321,8 +321,11 @@ def run():
                     blink_is_bright = False
                 if sv[S_PHASE] == 0:
                     beep_enqueue(880)
-                    sv[S_PHASE] = 1
-                    sv[S_REMAIN] = BREAK_SECONDS
+                    if sv[S_CYCLE] == NUM_CYCLES - 1:
+                        sv[S_CYCLE] = NUM_CYCLES  # skip final break, trigger DONE
+                    else:
+                        sv[S_PHASE] = 1
+                        sv[S_REMAIN] = BREAK_SECONDS
                 else:
                     beep_enqueue(440)
                     sv[S_CYCLE] += 1
